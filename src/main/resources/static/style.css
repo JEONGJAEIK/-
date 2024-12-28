@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.board-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.board-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.board-table th, .board-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.board-table th {
+    background-color: #f4f4f4;
+    color: #555;
+}
+
+.board-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.board-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.board-table a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.board-table a:hover {
+    text-decoration: underline;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    color: #555;
+    text-decoration: none;
+    background-color: #fff;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+.pagination a:hover {
+    background-color: #f1f1f1;
+}

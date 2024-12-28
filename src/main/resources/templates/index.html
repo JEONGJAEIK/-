@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="board-container">
+    <h1>게시판</h1>
+    <table class="board-table">
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>날짜</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="write : ${writeList}">
+                <td th:text="${write.id}"></td>
+                <td th:text="${write.subject}"></td>
+                <td th:text="${write.writer}"></td>
+                <td th:text="${write.createTime}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
