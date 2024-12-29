@@ -20,6 +20,7 @@ public class MainController {
     public String index(Model model) {
         List<WriteDTO> writeList = this.writeService.getAllWrites();
         model.addAttribute("writeList", writeList);
+        System.out.println(writeList);
         return "index";
     }
 }

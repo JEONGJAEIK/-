@@ -17,9 +17,9 @@ class MyBoardApplicationTests {
     @Test
     void contextLoads() {
         Write w1 = new Write();
-        w1.setSubject("갖고싶다 고양이");
-        w1.setContent("나만없어 고양이");
-        w1.setWriter("고양이 없는 사람");
+        w1.setSubject("나는있어 고양이");
+        w1.setContent("부럽지?");
+        w1.setWriter("고양이 있는 사람");
         w1.setCreateTime(LocalDateTime.now());
         this.writeRepositroy.save(w1);
     }
