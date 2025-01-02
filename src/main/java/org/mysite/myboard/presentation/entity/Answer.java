@@ -1,4 +1,4 @@
-package org.mysite.myboard.write;
+package org.mysite.myboard.presentation.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,18 +9,18 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @Entity
-public class Write {
+public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(length = 100)
-    private String subject;
+    private Long id;
 
     @Column(columnDefinition = "TEXT")
     private String content;
 
     private String writer;
 
-    private LocalDateTime createTime;
+    private LocalDateTime createDate;
+
+    @ManyToOne
+    private Write write;
 }

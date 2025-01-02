@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>게시판</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="container board-container">
+    <div>
+        <a href="/">
+            <button>처음으로</button>
+        </a>
+        <h1>짹 게시판</h1>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>날짜</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="write : ${writeList}">
+            <td th:text="${write.id}"></td>
+            <td>
+                <a th:href="@{|/write/${write.id}|}" th:text="${write.subject}"></a>
+                <span th:if="${#lists.size(write.answers) > 0}"
+                      th:text="${#lists.size(write.answers)}"></span>
+            </td>
+            <td th:text="${write.writer}"></td>
+            <td th:text="${#temporals.format(write.getCreateTime(), 'yyyy-MM-dd HH:mm')}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <button onclick = "location.href='/write/create'" class="board_write">글 작성</button>
+        <a th:href="@{/write/create}" ></a>
+    </div>
+    <div class="pagination-container">
+        <a th:href="@{/(page=${writeList.number - 1})}"
+           th:if="${writeList.hasPrevious()}">Previous</a>
+        <span>Page <span th:text="${writeList.number + 1}"></span> of <span
+                th:text="${writeList.totalPages}"></span></span>
+        <a th:href="@{/(page=${writeList.number + 1})}"
+           th:if="${writeList.hasNext()}">Next</a>
+    </div>
+
+</div>
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>글쓰기</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="write-container">
+    <h1>글쓰기</h1>
+    <form method="post" th:action="@{/write/create}">
+        <div>
+            <label for="subject">제목</label>
+            <input type="text" name ="subject" id = "subject" required >
+        </div>
+        <div>
+            <label for="content">내용</label>
+            <textarea id="content" name="content" required></textarea>
+        </div>
+        <div>
+            <label for="writer">작성자</label>
+            <textarea id="writer" name="writer" required></textarea>
+        </div>
+        <input type="submit" value = "작성" class="board_write">
+    </form>
+</div>
+</body>
+</html>

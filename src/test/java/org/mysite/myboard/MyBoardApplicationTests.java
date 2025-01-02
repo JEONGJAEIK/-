@@ -1,8 +1,9 @@
 package org.mysite.myboard;
 
 import org.junit.jupiter.api.Test;
-import org.mysite.myboard.write.Write;
-import org.mysite.myboard.write.WriteRepositroy;
+import org.mysite.myboard.business.WriteService;
+import org.mysite.myboard.data_access.WriteRepositroy;
+import org.mysite.myboard.presentation.entity.Write;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -12,16 +13,18 @@ import java.time.LocalDateTime;
 class MyBoardApplicationTests {
 
     @Autowired
-    private WriteRepositroy writeRepositroy;
+    private WriteService writeService;
 
     @Test
     void contextLoads() {
-        Write w1 = new Write();
-        w1.setSubject("나는있어 고양이");
-        w1.setContent("부럽지?");
-        w1.setWriter("고양이 있는 사람");
-        w1.setCreateTime(LocalDateTime.now());
-        this.writeRepositroy.save(w1);
+        for (int i = 1; i < 300; i++) {
+            String subject = String.format("테스트 데이터:[%03d]",i);
+            String content = "내용x";
+            String writer = "홍길동";
+            LocalDateTime now = LocalDateTime.now();
+
+            this.writeService.create(subject,content,writer,now);
+        }
     }
 
 }

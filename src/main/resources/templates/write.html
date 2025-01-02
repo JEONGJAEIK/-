@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 상세보기</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container write-container">
+    <a href = "/"><button>메인페이지로</button></a>
+    <h1 th:text = "${write.subject}"></h1>
+    <div th:text = "${write.content}"></div>
+    <div th:text = "|${#lists.size(write.answers)}개의 답변이 있습니다.|">
+    </div>
+    <div>
+        <ul>
+            <li th:each="answer : ${write.answers}" th:text="|${answer.content} &ensp;&ensp;&ensp;&ensp;&ensp; 댓쓴이 : ${answer.writer} &ensp;&ensp;&ensp;&ensp;&ensp; 작성시간 : ${#temporals.format(answer.createDate, 'yyyy-MM-dd HH:mm')}|"></li>
+        </ul>
+    </div>
+    <div>
+        <form th:action="@{|/answer/${write.id}|}" method="post" >
+            <div>
+                <label for="content">댓글</label>
+                <input type="text" name ="content" id = "content" required >
+            </div>
+            <div>
+                <label for="writer">작성자</label>
+                <input type="text" name ="writer" id = "writer" required >
+            </div>
+            <input type="submit" value = "댓글 달기" class="board_write">
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
